@@ -1,2 +1,20 @@
-# Birthday-scheduling
-API para agendamento e envio de mensagens de parabéns para clientes da Oticas Requinth via API oficial do WhatsaApp
+# Birthday-scheduling API
+
+API responsável por:
+
+- Consumir API CRM
+- Buscar aniversariantes
+- Persistir dados em SQLite
+- Futuramente integrar com WhatsApp BOT
+
+## Tecnologias
+
+- FastAPI
+- SQLite
+- SQLAlchemy
+- Requests
+
+## Executar
+
+```bash
+uvicorn app.main:app --reload
