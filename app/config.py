@@ -14,4 +14,10 @@ class Settings:
 
     DATABASE_URL = os.getenv("DATABASE_URL")
 
+    WABA_API_URL = os.getenv("WABA_API_URL")
+
+    WABA_TOKEN = os.getenv("WABA_TOKEN")
+
+    DEBUG = os.getenv("DEBUG", "false").lower() == "true"
+
 settings = Settings()

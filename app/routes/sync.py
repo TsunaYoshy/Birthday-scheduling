@@ -7,6 +7,8 @@ from app.models.birthday_client import BirthdayClient
 
 from app.services.crm_service import get_birthday_clients
 
+from app.config import settings
+
 router = APIRouter()
 
 
@@ -47,15 +49,22 @@ def sync_birthdays():
 
             db.add(new_client)
 
-            inserted.append(full_phone)
+            inserted.append({
+                "name": client["Nome"],
+                "phone": full_phone
+            })
 
         db.commit()
 
-        return {
-            "message": "Sincronização concluída",
-            "total_inserted": len(inserted),
-            "phones": inserted
+        response = {
+            "message": "Clientes sincronizados",
+            "total_inserted": len(inserted)
         }
+
+        if settings.DEBUG:
+            response["clients"] = inserted
+
+        return response
 
     finally:
         db.close()
