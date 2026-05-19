@@ -11,15 +11,10 @@ def send_template_message(phone: str):
     }
 
     payload = {
-        "messaging_product": "whatsapp",
-        "recipient_type": "individual",
-        "to": phone,
-        "type": "template",
-        "template": {
-            "name": "aniversariante_do_dia",
-            "language": {
-                "code": "pt_BR"
-            }
+        "channel_id": settings.CHANNEL_ID,
+        "bot_id": settings.BOT_ID,
+        "message": {
+            "to": phone
         }
     }
 

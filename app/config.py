@@ -18,6 +18,9 @@ class Settings:
 
     WABA_TOKEN = os.getenv("WABA_TOKEN")
 
+    CHANNEL_ID = os.getenv("CHANNEL_ID")
+    BOT_ID = os.getenv("BOT_ID")
+
     DEBUG = os.getenv("DEBUG", "false").lower() == "true"
 
 settings = Settings()
