@@ -3,16 +3,20 @@ import requests
 from app.config import settings
 
 
-def get_birthday_clients():
+def get_birthday_clients(store_code: str):
 
     headers = {
-        "Authorization": f"Bearer {settings.CRM_API_TOKEN}",
-        "Identificador": settings.CRM_IDENTIFICADOR,
+        "Authorization": (
+            f"Bearer {settings.CRM_API_TOKEN}"
+        ),
+        "Identificador": (
+            settings.CRM_IDENTIFICADOR
+        ),
         "Content-Type": "application/json"
     }
 
     payload = {
-        "codLoja": settings.CRM_STORE_CODE
+        "codLoja": store_code
     }
 
     response = requests.post(

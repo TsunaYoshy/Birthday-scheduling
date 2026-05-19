@@ -9,7 +9,8 @@ router = APIRouter()
 
 @router.get("/birthdays")
 def get_birthdays():
-
+    
+    print("Buscando aniversariantes...")
     db = SessionLocal()
 
     try:
@@ -26,8 +27,9 @@ def get_birthdays():
                 "last_name": client.last_name,
                 "phone": client.phone
             })
-
+    
         return response
 
     finally:
         db.close()
+        print("Aniversariantes encontrados.")
